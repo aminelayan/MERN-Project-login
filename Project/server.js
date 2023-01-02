@@ -3,6 +3,7 @@ const cors = require("cors");
 const cookies = require("cookie-parser");
 const port = 8000;
 const app = express();
+require("./server/config/mongoose.config");
 app.use(
   cors({
     credentials: true,
@@ -11,9 +12,7 @@ app.use(
 );
 app.use(express.json());
 app.use(cookies());
-// app.use("./server/uploads", express.static("middleware")); // tells server where to search images from
-
-require("./server/config/mongoose.config");
+app.use(express.urlencoded({extended:true}));
 require("./server/routes/user.routes")(app);
 require("./server/routes/polls.routes")(app);
 

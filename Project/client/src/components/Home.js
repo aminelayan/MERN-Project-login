@@ -1,5 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Header from './Nav'
 
 const Home = () => {
   const [polls,setPolls] =useState([])
@@ -10,9 +12,10 @@ const Home = () => {
   },[])
   return (
     <div>
-        <h1>Home</h1>
+      <Header/>
         {polls.map((poll,i)=> <div key={i} >
-
+          <Link to = {'/poll/'+poll._id}><h1>{poll.question}</h1></Link>
+          <h2>{poll.choice1}</h2>
         </div>)}
     </div>
   )

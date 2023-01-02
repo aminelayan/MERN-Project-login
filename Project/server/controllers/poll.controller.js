@@ -1,14 +1,12 @@
 const {Polls} = require("../models/poll.model");
 
-
-module.exports.createpoll = (req,res) =>{
-  const {questionName,choicea,choiceb,choicec,choiced} = req.body
-  Polls.create({
-      questionName,choicea,choiceb,choicec,choiced
-  })
-  .then(Polls=> res.json(Polls))
+module.exports.createQuestion = (req,res) =>{
+  const {question,choice1,choice2,choice3,choice4} = req.body
+  Polls.create({question,choice1,choice2,choice3,choice4})
+  .then(data => res.status(201).json(data))
   .catch(err => res.status(500).json(err))
 }
+
 
 module.exports.getAllPolls = (request, response) => {
   Polls.find({}).sort({_id:-1})

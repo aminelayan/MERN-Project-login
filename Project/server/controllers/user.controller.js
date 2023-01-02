@@ -5,18 +5,6 @@ const { secret } = require("../config/jwt");
 
 class UserController {
   register(req, res) {
-    // const firstName = req.body.firstName;
-    // const lastName = req.body.lastName;
-    // const email = req.body.email;
-    // const password = req.body.password;
-    // // const avatar = req.file.filename;
-    // const userData = {
-    //   firstName,
-    //   lastName,
-    //   email,
-    //   password,
-    //   // avatar,
-    // };
     const user = new User(req.body);
     user
       .save()

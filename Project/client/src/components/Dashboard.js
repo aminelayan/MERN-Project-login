@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Header from "./Nav";
 
 
 const Dashboard = () => {
@@ -35,6 +36,7 @@ const Dashboard = () => {
 
   return (
     <div>
+      <Header />
       {loggedInUser ? (
         <div>
           <h1>Hello {loggedInUser.firstName}</h1>
