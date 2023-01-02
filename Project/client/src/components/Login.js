@@ -24,7 +24,8 @@ const Login = () => {
         withCredentials: true,
       })
       .then((res) => {
-        console.log(res);
+        console.log('----',res);
+        localStorage.setItem('user', JSON.stringify(res.data.user));
         if (res.data.msg == "success!") {
           navigate("/dashboard");
         } else {

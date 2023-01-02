@@ -9,6 +9,8 @@ import Login from "./components/Login";
 import Home from "./components/Home";
 import Poll from "./components/Poll";
 import PieChartDemo from "./components/Pie";
+import QuestionForm from "./components/QuestionForm";
+import { ProtectedRoute } from "./components/Protected";
 
 function App() {
   return (
@@ -16,10 +18,10 @@ function App() {
       <Routes>
       <Route path="/result/:id" element={<PieChartDemo/>} />
       <Route path="/poll/:id" element={<Poll/>} />
-      <Route path="/" element={<Home/>} />
+      <Route path="/valid" element={<ProtectedRoute><QuestionForm/></ProtectedRoute>} />
       <Route path="/login" element={<Login/>}/>
       <Route path="/registration" element={<CreateUser/>}/>
-      <Route path="/dashboard" element={ <Dashboard/>}/>
+      <Route path="/dashboard" element={ <Home/>}/>
       </Routes>
     </div>
   );

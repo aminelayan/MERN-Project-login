@@ -23,38 +23,26 @@ import axios from 'axios'
 
 
 const QuestionForm = (props) => {
-
+    
+    const navigate = useNavigate()
     const [question,setQuestion]=useState("")
     const [choice1,setChoice1]=useState("")
     const [choice2,setChoice2]=useState("")
     const [choice3,setChoice3]=useState("")   
     const [choice4,setChoice4]=useState("")
-    // const [user,setUser]=useState(loggedInUser._id)
-    // const [userName,setUserName]=useState(loggedInUser.firstName)
-
-    // const [loggedInUser, setLoggedInUser] = useState(null);
-    // useEffect(() => {
-    //     axios
-    //       .get("http://localhost:8000/api/users/loggedin", {
-    //         withCredentials: true,
-    //       })
-    //       .then((res) => {
-    //         setLoggedInUser(res.data.user);
-    //         console.log(res);
-    //       })
-    //       .catch((err) => {
-    //         console.log(err);
-    //       });
-    //   }, []);
+    const  user=(JSON.parse(localStorage.getItem('user'))._id)
+    const userName=(JSON.parse(localStorage.getItem('user')).firstName)
 
   const [questions,setQuestions]=useState([])
   const [errors,setErrors] = useState([])
-  const navigate = useNavigate()
+
 
   const createQuestion = poll =>{
       axios.post('http://localhost:8000/api/polls',poll)
       .then(res =>{
+        console.log("res",res)
           setQuestions([...questions,res.data]);
+          console.log(questions)
           navigate('/')
       })
       .catch(err=>{
@@ -70,7 +58,10 @@ const QuestionForm = (props) => {
 
     const onSubmitHandler = e=>{
         e.preventDefault();
-        createQuestion({question,choice1,choice2,choice3,choice4})
+        console.log('user',user)
+        console.log("ques",questions)
+        console.log('username',userName)
+        createQuestion({question,choice1,choice2,choice3,choice4,user,userName})
     }
 return (
 <div>

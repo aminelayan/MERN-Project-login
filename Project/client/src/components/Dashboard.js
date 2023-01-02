@@ -14,6 +14,7 @@ const Dashboard = () => {
         withCredentials: true,
       })
       .then((res) => {
+        localStorage.setItem('user', JSON.stringify(res.data.user));
         setLoggedInUser(res.data.user);
         console.log(res);
       })
@@ -28,6 +29,7 @@ const Dashboard = () => {
       .then((res) => {
         console.log(res);
         navigate("/");
+        localStorage.clear()
       })
       .catch((err) => {
         console.log(err);

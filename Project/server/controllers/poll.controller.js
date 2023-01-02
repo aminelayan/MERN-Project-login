@@ -1,8 +1,8 @@
 const {Polls} = require("../models/poll.model");
 
 module.exports.createQuestion = (req,res) =>{
-  const {question,choice1,choice2,choice3,choice4} = req.body
-  Polls.create({question,choice1,choice2,choice3,choice4})
+  const {question,choice1,choice2,choice3,choice4,user,userName} = req.body
+  Polls.create({question,choice1,choice2,choice3,choice4,user,userName})
   .then(data => res.status(201).json(data))
   .catch(err => res.status(500).json(err))
 }

@@ -14,19 +14,21 @@ const Header = props => {
             withCredentials: true,
           })
           .then((res) => {
+            localStorage.setItem('user', JSON.stringify(res.data.user));
             setLoggedInUser(res.data.user);
             console.log(res);
           })
           .catch((err) => {
             console.log(err);
           });
-      },[loggedInUser]);
+      },[]);
 
       const logout = (e) => {
         axios
           .get("http://localhost:8000/api/users/logout", { withCredentials: true })
           .then((res) => {
             console.log(res);
+            localStorage.clear()
             navigate("/home");
           })
           .catch((err) => {

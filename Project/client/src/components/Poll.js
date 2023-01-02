@@ -44,6 +44,7 @@ const updateVote4 = (tanas) =>{
         <h2>Choice D: {poll.choice4} </h2>
         <Button onClick={e=>updateVote4(poll.votes4)} style={{backgroundColor:"red",boxShadow:"2px 2px 2px 2px"}}>Vote</Button>
         <h1>{poll.user}</h1>
+        <h2>{poll.userName}</h2>
     </div>
   )
 }
