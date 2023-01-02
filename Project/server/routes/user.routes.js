@@ -1,6 +1,6 @@
 const User = require("../controllers/user.controller");
 const { authenticate } = require("../config/jwt");
-const upload = require("../middleware/uploads");
+
 
 module.exports = (app) => {
   app.post("/api/register", User.register);
