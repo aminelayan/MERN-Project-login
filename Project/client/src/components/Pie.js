@@ -9,7 +9,7 @@ const PieChartDemo = () => {
     const [question, setQuestion] = useState({})
     const [loaded,setLoaded] = useState(false)
     useEffect(()=>{
-        axios.get("http://localhost:8000/api/polls/63b2cea161bbcf0f64399018")
+        axios.get("http://localhost:8000/api/polls/"+id)
         .then (res =>{
             setQuestion(res.data)
             setLoaded(true)
@@ -32,7 +32,7 @@ const parseChartdata = () => {
                     "#42A5F5",
                     "#66BB6A",
                     "#FFA726",
-                    ""
+                    "red"
                 ],
                 hoverBackgroundColor: [
                     "#64B5F6",
