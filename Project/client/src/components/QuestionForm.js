@@ -36,6 +36,7 @@ const QuestionForm = (props) => {
   const [questions,setQuestions]=useState([])
   const [errors,setErrors] = useState([])
 
+//   socket.emit('update:client', true);
 
   const createQuestion = poll =>{
       axios.post('http://localhost:8000/api/polls',poll)

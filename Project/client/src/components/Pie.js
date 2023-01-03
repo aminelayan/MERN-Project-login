@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Chart } from 'primereact/chart';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import Header from './Nav';
 
 const PieChartDemo = () => {
     const {id} =useParams();
@@ -51,6 +52,7 @@ const parseChartdata = () => {
 
     return (
         <div className="card flex justify-content-center">
+            <Header/>
             <Chart type="pie" data={chartData} style={{ position: 'relative', width: '40%' }} />
         </div>
     )

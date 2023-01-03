@@ -13,6 +13,7 @@ const Login = () => {
 
   const [errormsg, setErrormsg] = useState(null);
   const navigate = useNavigate()
+
   const changehandler = (e) => {
     setFormInfo({ ...formInfo, [e.target.name]: e.target.value });
   };
@@ -25,9 +26,9 @@ const Login = () => {
       })
       .then((res) => {
         console.log('----',res);
-        localStorage.setItem('user', JSON.stringify(res.data.user));
         if (res.data.msg == "success!") {
-          navigate("/dashboard");
+          localStorage.setItem('user', JSON.stringify(res.data.user));
+          navigate("/");
         } else {
           setErrormsg(res.data.msg);
         }

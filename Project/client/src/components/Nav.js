@@ -28,6 +28,7 @@ const Header = props => {
           .get("http://localhost:8000/api/users/logout", { withCredentials: true })
           .then((res) => {
             console.log(res);
+            setLoggedInUser(null);
             localStorage.clear()
             navigate("/");
           })
@@ -52,12 +53,13 @@ const Header = props => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="/valid">Create Poll</Nav.Link>
+                        <Nav.Link href="/">Home</Nav.Link>
                     </Nav>
                     {loggedInUser != null?
                             <Nav>
+                                <Nav.Link href="/valid">Create Poll</Nav.Link>
                                 <Nav.Link onClick={logout}>Log Out</Nav.Link>
-                                <Nav.Link href="/">Welcome, {loggedInUser.firstName}</Nav.Link>
+                                <Nav.Link href="/dashboard">Welcome, {loggedInUser.firstName}</Nav.Link>
                             </Nav>
                             :                     
                             <Nav>

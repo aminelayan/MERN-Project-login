@@ -26,7 +26,7 @@ function App() {
       <Route path="/registration" element={<CreateUser/>}/>
       <Route path="/" element={<Home/>}/>
       <Route path="/unauth" element={<UnAuth/>}/>
-      <Route path="/dashboard" element={<DashboardUser/>}/>
+      <Route path="/dashboard" element={<ProtectedRoute><DashboardUser/></ProtectedRoute>}/>
       </Routes>
     </div>
   );
