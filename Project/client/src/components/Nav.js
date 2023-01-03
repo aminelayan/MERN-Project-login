@@ -29,7 +29,7 @@ const Header = props => {
           .then((res) => {
             console.log(res);
             localStorage.clear()
-            navigate("/home");
+            navigate("/");
           })
           .catch((err) => {
             console.log(err);

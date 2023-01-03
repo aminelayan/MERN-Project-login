@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Header from "./Nav";
 
 const CreateUser = () => {
   const [errors, setErrors] = useState([]);
@@ -45,6 +46,7 @@ const CreateUser = () => {
 
   return (
     <>
+    <Header/>
       <h1>Register Below</h1>
       <form onSubmit={register}>
         <div className="form-group mb-2">
@@ -128,6 +130,8 @@ const CreateUser = () => {
           className="btn btn-primary col-md-2"
           value="Sign up"
         ></input>
+
+        <Link to={"/login"}>Login</Link>
       </form>
     </>
   );
