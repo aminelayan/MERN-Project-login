@@ -2,7 +2,8 @@
 import { Input, StepLabel } from "@mui/material";
 import axios from "axios";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Header from "./Nav";
 
 const Login = () => {
   const [formInfo, setFormInfo] = useState({
@@ -37,7 +38,9 @@ const Login = () => {
   };
 
   return (
-    <div className="row d-flex">
+
+    <div>
+      <Header/>
       <h1>Sign in</h1>
       <form onSubmit={login}>
         {errormsg ? <p className="text-danger">{errormsg}</p> : ""}
@@ -64,6 +67,7 @@ const Login = () => {
           className="btn btn-primary col-md-2"
           value="Login"
         ></input>
+        <Link to= {'/registration'}>Register</Link>
       </form>
     </div>
   );
